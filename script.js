@@ -67,4 +67,11 @@ function addTask() {
   renderTasks();
 }
 
+addBtn.addEventListener("click", addTask);
+taskInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
+
 console.log("Todo app loaded!");
