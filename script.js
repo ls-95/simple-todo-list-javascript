@@ -30,6 +30,11 @@ function renderTasks() {
   taskList.innerHTML = html;
 }
 
+function deleteTask(id) {
+  tasks = tasks.filter((task) => task.id !== id);
+  renderTasks();
+}
+
 function toggleTask(id) {
   tasks = tasks.map((task) => {
     if (task.id === id) {
