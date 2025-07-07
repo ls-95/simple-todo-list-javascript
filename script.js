@@ -1,17 +1,19 @@
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
-const taskList = document.getElementById("taskList");
-const emptyState = document.querySelector("empty-state");
+const taskList = document.querySelector(".taskList");
+const emptyState = document.querySelector(".empty-state");
 
 let tasks = [];
 
-function renderTask() {
+function renderTasks() {
   if (tasks.length === 0) {
-    taskList.innerHTML = `<div class="empty-state">No tasks yet. Add one above!</div>`;
+    taskList.innerHTML =
+      '<div class="empty-state">No tasks yet. Add one above!</div>';
     return;
   }
 
   let html = "";
+
   tasks.forEach((task) => {
     html += `
       <div class="task-item ${task.completed ? "completed" : ""}">
@@ -29,24 +31,24 @@ function renderTask() {
 }
 
 function addTask() {
-  const taskText = taskInput.ariaValueMax.trim();
+  const taskText = taskInput.value.trim();
 
-  if (taskInput === "") {
-    alert("Please enter a task");
+  if (taskText === "") {
+    alert("Please enter a task!");
     return;
   }
 
   const newTask = {
     id: Date.now(),
     text: taskText,
-    completed: fasle,
+    completed: false,
   };
 
   tasks.push(newTask);
 
   taskInput.value = "";
 
-  renderTask();
+  renderTasks();
 }
 
 console.log("Todo app loaded!");
