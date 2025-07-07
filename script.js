@@ -30,6 +30,17 @@ function renderTasks() {
   taskList.innerHTML = html;
 }
 
+function toggleTask(id) {
+  tasks = tasks.map((task) => {
+    if (task.id === id) {
+      return { ...task, completed: !task.completed };
+    }
+    return task;
+  });
+
+  renderTasks();
+}
+
 function addTask() {
   const taskText = taskInput.value.trim();
 
