@@ -74,4 +74,6 @@ taskInput.addEventListener("keypress", function (event) {
   }
 });
 
+renderTasks();
+
 console.log("Todo app loaded!");
